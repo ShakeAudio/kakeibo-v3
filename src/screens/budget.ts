@@ -19,8 +19,9 @@ function syncNote(): string {
 
 function bankRows(month: string, rows: BankRow[]): string {
   return rows
-    .filter((b) => b.total > 0)
     .map((b) => {
+      // 引き落としがない月も、登録したすべての銀行を薄く出す
+      if (!b.total) return `<div class="bank-row muted"><span>${esc(b.name)}</span><span>0</span></div>`;
       const key = `${month}:${b.bankId}`;
       const isOpen = open.has(key);
       return `
