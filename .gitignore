@@ -1,0 +1,8 @@
+node_modules
+node_modules.nosync
+dist.nosync
+.DS_Store
+
+# 個人的な情報を含む仕様メモは公開リポジトリに入れない
+SPEC.md
+.claude
